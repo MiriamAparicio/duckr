@@ -1,0 +1,11 @@
+.container {
+  composes: centeredContainer from 'shared_styles/styles.css';
+}
+
+.title {
+  composes: largeHeader from 'shared_styles/styles.css';
+}
+
+.slogan {
+  composes: subHeader from 'shared_styles/styles.css';
+}
