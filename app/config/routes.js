@@ -1,16 +1,21 @@
 import React from 'react'
-// needed to chage some parts of the code as react-router documentation is outdated
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-import { MainContainer, HomeContainer, AuthenticateContainer, FeedContainer } from 'containers'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import {
+  MainContainer, HomeContainer, AuthenticateContainer,
+  FeedContainer, LogoutContainer,
+} from 'containers'
 
-const routes = (
-  <Router>
-    <MainContainer>
-      <Route exact={true} path='/' component={HomeContainer} />
-      <Route exact={true} path='/auth' component={AuthenticateContainer} />
-      <Route exact={true} path='/feed' component={FeedContainer} />
-    </MainContainer>
-  </Router>
-)
-
-export default routes
+export default function getRoutes (checkAuth) {
+  return (
+    <Router>
+      <MainContainer>
+        <Switch>
+          <Route exact={true} path='/' component={checkAuth(HomeContainer)} />
+          <Route path='/auth' component={checkAuth(AuthenticateContainer)} />
+          <Route path='/feed' component={checkAuth(FeedContainer)} />
+          <Route path='/logout' component={LogoutContainer} />
+        </Switch>
+      </MainContainer>
+    </Router>
+  )
+}

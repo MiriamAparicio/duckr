@@ -1,9 +1,20 @@
-export default function auth () {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => resolve({
-      name: 'Mir',
-      avatar: 'https://pbs.twimg.com/profile_images/571260078292865024/0EvP5vXn_400x400.jpeg',
-      uid: 'the-uid',
-    }), 2000)
-  })
+import { ref, firebaseAuth } from 'config/constants'
+
+export function auth () {
+  return firebaseAuth().signInWithPopup(new firebaseAuth.FacebookAuthProvider())
+}
+
+export function checkIfAuthed (store) {
+  console.log(store)
+  return store.getState().isAuthed
+}
+
+export function logout () {
+  return firebaseAuth().signOut()
+}
+
+export function saveUser (user) {
+  return ref.child(`users/${user.uid}`)
+    .set(user)
+    .then(() => user)
 }
