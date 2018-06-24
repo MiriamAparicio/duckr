@@ -103,14 +103,12 @@ const initialState = {
 export default function users (state = initialState, action) {
   switch (action.type) {
     case AUTH_USER:
-      console.log(state)
       return {
         ...state,
         isAuthed: true,
         authedId: action.uid,
       }
     case UNAUTH_USER:
-      console.log(state)
       return {
         ...state,
         isAuthed: false,

@@ -51,9 +51,9 @@ class MainContainer extends Component {
  }
 }
 
-const mapStateToProps = state => ({
-  isAuthed: state.isAuthed,
-  isFetching: state.isFetching,
+const mapStateToProps = ({users}) => ({
+  isAuthed: users.isAuthed,
+  isFetching: users.isFetching,
 })
 
 const mapDispatchToProps = dispatch => (

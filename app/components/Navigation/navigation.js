@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { container, navContainer, link } from './styles.css'
-// import { ModalContainer } from 'containers'
+import { ModalContainer } from 'containers'
 
 // Do this two functional components better be in two different files?
 function NavLinks ({ isAuthed }) {
   return isAuthed === true
     ? <ul>
-      <li><Link className={link} to='/'>{'Home'}</Link></li>
+      <li><Link className={link} to='/feed'>{'Home'}</Link></li>
     </ul>
     : null
 }
@@ -16,7 +16,7 @@ function NavLinks ({ isAuthed }) {
 function ActionLinks ({ isAuthed }) {
   return isAuthed === true
     ? <ul>
-      {/* <li><ModalContainer /></li> */}
+      <li><ModalContainer /></li>
       <li><Link className={link} to='/logout'>{'Logout'}</Link></li>
     </ul>
     : <ul>

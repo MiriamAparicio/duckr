@@ -5,8 +5,7 @@ export function auth () {
 }
 
 export function checkIfAuthed (store) {
-  console.log(store)
-  return store.getState().isAuthed
+  return store.getState().users.isAuthed
 }
 
 export function logout () {
