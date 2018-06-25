@@ -5,6 +5,7 @@ import {
   newDuckTop, pointer, newDuckInputContainer,
   newDuckInput, submitDuckBtn, darkBtn,
 } from './styles.css'
+import { formatDuck } from '../../helpers/utils'
 
 const modalStyles = {
   content: {
@@ -26,12 +27,13 @@ class Modal extends Component {
     openModal: PropTypes.func.isRequired,
     closeModal: PropTypes.func.isRequired,
     updateDuckText: PropTypes.func.isRequired,
-    // duckFanout: PropTypes.func.isRequired,
+    duckFanout: PropTypes.func.isRequired,
   }
 
   submitDuck = () => {
     console.log('Duck', this.props.duckText)
     console.log('User', this.props.user)
+    this.props.duckFanout(formatDuck(this.props.duckText, this.props.user))
   }
 
   render () {

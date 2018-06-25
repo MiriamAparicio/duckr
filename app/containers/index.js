@@ -4,3 +4,4 @@ export { default as AuthenticateContainer } from './Authenticate/authenticate_co
 export { default as FeedContainer } from './Feed/feed_container'
 export { default as LogoutContainer } from './Logout/logout_container'
 export { default as ModalContainer } from './Modal/modal_container'
+export { default as DuckContainer } from './Duck/duck_container'
