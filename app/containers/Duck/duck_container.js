@@ -23,12 +23,12 @@ class DuckContainer extends Component {
 
   goToProfile = (e) => {
     e.stopPropagation()
-    this.context.router.push('/' + this.props.duck.uid)
+    this.context.router.history.push(`/${this.props.duck.uid}`)
   }
 
   handleClick = (e) => {
     e.preventDefault()
-    this.context.router.push('/duckDetail/' + this.props.duck.duckId)
+    this.context.router.history.push(`/duck-detail/${this.props.duck.duckId}`)
   }
 
   render () {
