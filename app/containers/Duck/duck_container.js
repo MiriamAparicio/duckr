@@ -12,7 +12,7 @@ class DuckContainer extends Component {
     hideLikeCount: PropTypes.bool.isRequired,
     hideReplyBtn: PropTypes.bool.isRequired,
     isLiked: PropTypes.bool.isRequired,
-    numberOfLikes: PropTypes.number,
+    likeCount: PropTypes.number,
     addAndHandleLike: PropTypes.func.isRequired,
     handleDeleteLike: PropTypes.func.isRequired,
   }
@@ -51,7 +51,7 @@ const mapStateToProps = ({ ducks, likeCount, usersLikes }, props) => ({
   hideLikeCount: props.hideLikeCount,
   hideReplyBtn: props.hideReplyBtn,
   isLiked: usersLikes[props.duckId] === true,
-  numberOfLikes: likeCount[props.duckId],
+  likeCount: likeCount[props.duckId],
 })
 
 const mapDispatchToProps = (dispatch) => (bindActionCreators(usersLikesActions, dispatch))

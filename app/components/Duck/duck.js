@@ -22,7 +22,7 @@ class Duck extends Component {
     isLiked: PropTypes.bool.isRequired,
     addAndHandleLike: PropTypes.func.isRequired,
     handleDeleteLike: PropTypes.func.isRequired,
-    numberOfLikes: PropTypes.number,
+    likeCount: PropTypes.number,
     hideReplyBtn: PropTypes.bool.isRequired,
     hideLikeCount: PropTypes.bool.isRequired,
     goToProfile: PropTypes.func.isRequired,
@@ -49,7 +49,7 @@ class Duck extends Component {
               : <Reply className={icon} />}
             <div className={actionContainer}>
               <Star className={starIcon} onClick={(e) => starFn(this.props.duck.duckId, e)} />
-              {this.props.hideLikeCount === true ? null : <div>{this.props.numberOfLikes}</div>}
+              {this.props.hideLikeCount === true ? null : <div>{this.props.likeCount}</div>}
             </div>
           </div>
         </div>
