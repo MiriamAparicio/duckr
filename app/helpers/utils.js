@@ -1,4 +1,4 @@
-export function formatUserInfo (name, avatar, uid) {
+export const formatUserInfo = (name, avatar, uid) => {
   return {
     name,
     avatar,
@@ -6,7 +6,7 @@ export function formatUserInfo (name, avatar, uid) {
   }
 }
 
-export function formatDuck (text, { name, avatar, uid }) {
+export const formatDuck = (text, { name, avatar, uid }) => {
   return {
     text,
     name,
@@ -14,4 +14,9 @@ export function formatDuck (text, { name, avatar, uid }) {
     uid,
     timestamp: Date.now(),
   }
+}
+
+export const formatTimestamp = (timestamp) => {
+  const date = new Date(timestamp)
+  return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
 }
