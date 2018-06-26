@@ -44,9 +44,9 @@ class DuckDetailsContainer extends Component {
 const mapStateToProps = (state, props) => ({
   duckId: props.match.params.duckId,
   authedUser: state.users[state.users.authedId].info,
-  isFetching: state.ducks.isFetching || state.likeCount.isFetching,
-  error: state.ducks.error,
-  duckAlreadyFetched: !!state.ducks[props.match.params.duckId],
+  isFetching: state.ducks.get('isFetching') || state.likeCount.isFetching,
+  error: state.ducks.get('error'),
+  duckAlreadyFetched: !!state.ducks.get(props.match.params.duckId),
 })
 
 const mapDispatchToProps = (dispatch) => (bindActionCreators({

@@ -7,17 +7,11 @@ import {
   duckContainer, contentContainer, avatar, actionContainer,
   header, text, likeReplyContainer, icon, likedIcon, author,
 } from './styles.css'
+import { Map } from 'immutable'
 
 class Duck extends Component {
   static propTypes = {
-    duck: PropTypes.shape({
-      avatar: PropTypes.string.isRequired,
-      duckId: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired,
-      timestamp: PropTypes.number.isRequired,
-      uid: PropTypes.string.isRequired,
-    }),
+    duck: PropTypes.instanceOf(Map),
     onClick: PropTypes.func,
     isLiked: PropTypes.bool.isRequired,
     addAndHandleLike: PropTypes.func.isRequired,
@@ -36,19 +30,19 @@ class Duck extends Component {
         className = {duckContainer}
         style = {{ cursor: this.props.hideReplyBtn === true ? 'default' : 'pointer' }}
         onClick = {this.props.onClick} >
-        <img src={this.props.duck.avatar} className={avatar} />
+        <img src={this.props.duck.get('avatar')} className={avatar} />
         <div className={contentContainer}>
           <div className={header}>
-            <div onClick={this.props.goToProfile} className={author}>{this.props.duck.name}</div>
-            <div>{formatTimestamp(this.props.duck.timestamp)}</div>
+            <div onClick={this.props.goToProfile} className={author}>{this.props.duck.get('name')}</div>
+            <div>{formatTimestamp(this.props.duck.get('timestamp'))}</div>
           </div>
-          <div className={text}>{this.props.duck.text}</div>
+          <div className={text}>{this.props.duck.get('text')}</div>
           <div className={likeReplyContainer}>
             {this.props.hideReplyBtn === true
               ? null
               : <Reply className={icon} />}
             <div className={actionContainer}>
-              <Star className={starIcon} onClick={(e) => starFn(this.props.duck.duckId, e)} />
+              <Star className={starIcon} onClick={(e) => starFn(this.props.duck.get('duckId'), e)} />
               {this.props.hideLikeCount === true ? null : <div>{this.props.likeCount}</div>}
             </div>
           </div>
