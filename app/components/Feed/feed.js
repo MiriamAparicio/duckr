@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { List } from 'immutable'
 import { newDuckContainer, header } from './styles.css'
 import { DuckContainer } from 'containers'
 import { errorMsg } from 'shared_styles/styles.css'
@@ -14,7 +15,7 @@ const NewDucksAvailable = ({ handleClick }) => {
 
 class Feed extends Component {
   static proptypes = {
-    duckIds: PropTypes.array.isRequired,
+    duckIds: PropTypes.instanceOf(List),
     error: PropTypes.string.isRequired,
     isFetching: PropTypes.bool.isRequired,
     newDucksAvailable: PropTypes.bool.isRequired,
@@ -26,7 +27,7 @@ class Feed extends Component {
     return this.props.isFetching === true ? <h1 className={header}>{'Fetching'}</h1>
       : <div>
         {this.props.newDucksAvailable ? <NewDucksAvailable handleClick={this.props.resetNewDucksAvailable} /> : null}
-        {this.props.duckIds.length === 0
+        {this.props.duckIds.size === 0
           ? <p className={header}>{'This is unfortunate.'} <br /> {'It appears there are no ducks yet 😞'}</p>
           : null}
         {this.props.duckIds.map((id) => (
