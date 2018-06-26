@@ -31,8 +31,6 @@ class Modal extends Component {
   }
 
   submitDuck = () => {
-    console.log('Duck', this.props.duckText)
-    console.log('User', this.props.user)
     this.props.duckFanout(formatDuck(this.props.duckText, this.props.user))
   }
 

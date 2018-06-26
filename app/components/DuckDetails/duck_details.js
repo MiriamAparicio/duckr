@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { DuckContainer } from 'containers'
+import { DuckContainer, RepliesContainer } from 'containers'
 import {
   mainContainer, container, content, repliesContainer,
   replyTextAreaContainer, replyTextArea,
 } from './styles.css'
 import { subHeader, darkBtn, errorMsg } from 'shared_styles/styles.css'
-import { RepliesContainer } from 'containers'
 import { formatReply } from 'helpers/utils'
 
 Reply.propTypes = {
@@ -57,7 +56,7 @@ class DuckDetails extends Component {
               <Reply submit={(replyText) => this.props.addAndHandleReply(this.props.duckId, formatReply(this.props.authedUser, replyText))} />
             </div>
             <div className={repliesContainer}>
-              REPLY SECTION
+              <RepliesContainer duckId={this.props.duckId}/>
             </div>
           </div>}
         {this.props.error ? <p className={errorMsg}>{this.props.error}</p> : null}
