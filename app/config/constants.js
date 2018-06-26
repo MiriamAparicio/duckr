@@ -1,8 +1,9 @@
 import firebase from 'firebase'
+import { apiKey } from './api_keys'
 
 // Initialize Firebase
 const config = {
-  apiKey: 'AIzaSyDt2vl5zp0W46ih8DdOabVOd1DFitAvtqY',
+  apiKey: apiKey,
   authDomain: 'duckrs-ee13d.firebaseapp.com',
   databaseURL: 'https://duckrs-ee13d.firebaseio.com',
   projectId: 'duckrs-ee13d',

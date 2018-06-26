@@ -18,6 +18,8 @@ function checkAuth (component) {
   return restricted(component, store)
 }
 
+console.log(process.env.API_KEY)
+
 ReactDOM.render(
   <Provider store={store}>
     {getRoutes(checkAuth)}
